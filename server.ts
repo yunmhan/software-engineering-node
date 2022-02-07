@@ -4,9 +4,9 @@ import TuitController from "./controllers/TuitController";
 import UserController from "./controllers/UserController";
 
 // connect to the database
-// mongoose.connect('mongodb+srv://yunmhan:<Hym246494726>@cluster0.md46p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://yunmhan:Hym246494726@cluster0.md46p.mongodb.net/tuiter?retryWrites=true&w=majority');
 
-mongoose.connect('mongodb://localhost:27017/tuiter');
+// mongoose.connect('mongodb://localhost:27017/tuiter');
 
 const app = express();
 app.use(express.json());
