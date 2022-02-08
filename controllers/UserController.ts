@@ -28,15 +28,15 @@ export default class UserController implements UserControllerI {
         UserController.userDao.findAllUsers()
             .then(users => res.json(users));
     findUserById = (req: Request, res: Response) =>
-        UserController.userDao.findUserById(req.params.userid)
+        UserController.userDao.findUserById(req.params.uid)
             .then(user => res.json(user));
     createUser = (req: Request, res: Response) =>
         UserController.userDao.createUser(req.body)
             .then(user => res.json(user));
     deleteUser = (req: Request, res: Response) =>
-        UserController.userDao.deleteUser(req.params.userid)
+        UserController.userDao.deleteUser(req.params.uid)
             .then(status => res.json(status));
     updateUser = (req: Request, res: Response) =>
-        UserController.userDao.updateUser(req.params.userid, req.body)
+        UserController.userDao.updateUser(req.params.uid, req.body)
             .then(status => res.json(status));
 }
