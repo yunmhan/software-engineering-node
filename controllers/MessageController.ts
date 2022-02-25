@@ -57,7 +57,7 @@ export default class MessageController implements MessageControllerI{
      */
 
     userMessagesAnotherUser = (req: Request, res: Response) =>
-        MessageController.messageDao.userMessagesAnotherUser(req.body, req.params.uid1, req.params.uid2)
+        MessageController.messageDao.userMessagesAnotherUser(req.body.message, req.params.uid1, req.params.uid2)
             .then((messages:Message) =>res.json(messages));
 
     /**
@@ -90,7 +90,7 @@ export default class MessageController implements MessageControllerI{
      * on whether deleting the message was successful or not
      */
     userDeletesMessage = (req: Request, res: Response) =>
-        MessageController.messageDao.userDeletesMessage(req.body,req.params.uid1, req.params.uid2)
+        MessageController.messageDao.userDeletesMessage(req.body.message,req.params.uid1, req.params.uid2)
             .then(status => res.send(status));
 
 }
