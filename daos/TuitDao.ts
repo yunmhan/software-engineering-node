@@ -23,9 +23,8 @@ export default class TuitDao implements TuitDaoI{
             .populate("postedBy")
             .exec();
 
-    async createTuit(tuit:Tuit):Promise<Tuit>{
-        return await TuitModel.create(tuit);
-    }
+    createTuitByUser = async (uid: string, tuit: Tuit): Promise<Tuit> =>
+        TuitModel.create({...tuit, postedBy: uid});
 
     async updateTuit(tid:string, tuit:Tuit):Promise<any>{
         return await TuitModel.updateOne({_id:tid},{$set:tuit});

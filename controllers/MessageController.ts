@@ -1,6 +1,7 @@
 import MessageControllerI from "../interfaces/MessageControllerI";
 import MessageDao from "../daos/MessageDao";
 import {Express, Request, Response} from "express";
+import Message from "../models/Message";
 
 export default class MessageController implements MessageControllerI{
     private static messageDao: MessageDao = MessageDao.getInstance();
@@ -21,14 +22,14 @@ export default class MessageController implements MessageControllerI{
 
     userMessagesAnotherUser = (req: Request, res: Response) =>
         MessageController.messageDao.userMessagesAnotherUser(req.body, req.params.uid1, req.params.uid2)
-            .then(messages => res.json(messages));
+            .then((messages:Message) =>res.json(messages));
 
     findAllMessagesSentByUser = (req: Request, res: Response) =>
         MessageController.messageDao.findAllMessagesSentByUser(req.params.uid)
-            .then(messages => res.json(messages));
+            .then((messages:Message[]) => res.json(messages));
     findAllMessagesSentToUser = (req: Request, res: Response) =>
         MessageController.messageDao.findAllMessagesSentByUser(req.params.uid)
-            .then(messages => res.json(messages));
+            .then((messages:Message[]) => res.json(messages));
     userDeletesMessage = (req: Request, res: Response) =>
         MessageController.messageDao.userDeletesMessage(req.body,req.params.uid1, req.params.uid2)
             .then(status => res.send(status));
