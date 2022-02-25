@@ -39,7 +39,7 @@ export default class MessageController implements MessageControllerI{
             MessageController.messageController = new MessageController();
             app.post("/api/users/:uid1/messages/:uid2", MessageController.messageController.userMessagesAnotherUser);
             app.get("/api/users/:uid/messages", MessageController.messageController.findAllMessagesSentByUser);
-            app.get("/api/users/:uid1/messaged", MessageController.messageController.findAllMessagesSentToUser);
+            app.get("/api/users/:uid/messaged", MessageController.messageController.findAllMessagesSentToUser);
             app.delete("/api/users/:uid1/deletemessages/:uid2", MessageController.messageController.userDeletesMessage);
 
         }
