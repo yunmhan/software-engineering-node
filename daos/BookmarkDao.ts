@@ -29,7 +29,7 @@ export default class BookmarkDao implements BookmarkDaoI {
     private constructor() {}
     userBookmarksTuit = async (uid: string, tid: string): Promise<any> =>
         BookmarkModel.create({bookmarkedBy: uid,bookmarkedTuit: tid});
-    userUnbookmarksTuit = async (tid: string, uid: string): Promise<any> =>
+    userUnbookmarksTuit = async (uid: string, tid: string): Promise<any> =>
         BookmarkModel.deleteOne({bookmarkedBy: uid,bookmarkedTuit: tid});
     findAllTuitsBookmarkedByUser = async (uid: string): Promise<Bookmark[]> =>
         BookmarkModel
