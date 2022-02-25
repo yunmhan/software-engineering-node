@@ -1,9 +1,23 @@
+/**
+ * @file Implements DAO managing data storage of follows. Uses mongoose BookmarkModel
+ * to integrate with MongoDB
+ */
 import FollowDaoI from "../interfaces/FollowDaoI";
 import FollowModel from "../mongoose/follows/FollowModel";
 import Follow from "../models/Follow";
 
+/**
+ * @class BookmarkDao Implements Data Access Object managing data storage
+ * of Users
+ * @property {BookmarkDao} bookmarkDao Private single instance of UserDao
+ */
 export default class FollowDao implements FollowDaoI {
     private static followDao: FollowDao | null = null;
+
+    /**
+     * Creates singleton DAO instance
+     * @returns BookmarkDao
+     */
     public static getInstance = (): FollowDao => {
         if(FollowDao.followDao === null) {
             FollowDao.followDao = new FollowDao();
