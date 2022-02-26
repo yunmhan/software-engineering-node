@@ -90,6 +90,6 @@ export default class FollowController implements FollowControllerI{
      * body formatted as JSON arrays containing the user objects
      */
     findAllUsersFollower= (req: Request, res: Response) =>
-        FollowController.followDao.findAllUsersFollowedByUser(req.params.uid)
+        FollowController.followDao.findAllUsersFollower(req.params.uid)
             .then(follows => res.json(follows));
     }
