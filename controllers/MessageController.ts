@@ -79,7 +79,7 @@ export default class MessageController implements MessageControllerI{
      * body formatted as JSON arrays containing the messages objects
      */
     findAllMessagesSentToUser = (req: Request, res: Response) =>
-        MessageController.messageDao.findAllMessagesSentByUser(req.params.uid)
+        MessageController.messageDao.findAllMessagesSentToUser(req.params.uid)
             .then((messages:Message[]) => res.json(messages));
 
     /**
