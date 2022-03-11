@@ -50,7 +50,7 @@ export default class UserDao implements UserDaoI {
      * @param {User} user Instance to be inserted into the database
      * @returns Promise To be notified when user is inserted into the database
      */
-    async createUser(user: User): Promise<void> {
+    async createUser(user: User): Promise<User> {
         return await UserModel.create(user);
     }
 
@@ -80,4 +80,10 @@ export default class UserDao implements UserDaoI {
      */
     deleteAllUsers = async (): Promise<any> =>
         UserModel.deleteMany({});
+
+    findUserByCredentials = async (username: string, password: string): Promise<any> =>
+        UserModel.findOne({username: username, password: password});
+
+    findUserByUsername = async (username: string): Promise<any> =>
+        UserModel.findOne({username});
 }
