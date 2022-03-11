@@ -20,7 +20,6 @@ import FollowController from "./controllers/FollowController";
 import MessageController from "./controllers/MessageController";
 
 
-var cors = require('cors')
 // connect to the database
 mongoose.connect('mongodb+srv://yunmhan:Hym246494726@cluster0.md46p.mongodb.net/tuiter?retryWrites=true&w=majority');
 
@@ -28,7 +27,6 @@ mongoose.connect('mongodb+srv://yunmhan:Hym246494726@cluster0.md46p.mongodb.net/
 
 const app = express();
 app.use(express.json());
-app.use(cors());
 
 app.get('/hello', (req: Request, res: Response) =>
     res.send('Hello World!'));
