@@ -29,7 +29,7 @@ mongoose.connect('mongodb+srv://yunmhan:Hym246494726@cluster0.md46p.mongodb.net/
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: "https://wonderful-cendol-c55b64.netlify.app/"
 }));
 
 const SECRET = 'process.env.SECRET';
