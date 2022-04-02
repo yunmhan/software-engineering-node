@@ -20,8 +20,8 @@ import AuthenticationController from "./controllers/AuthenticationController";
 import mongoose from "mongoose";
 import GroupController from "./controllers/GroupController";
 import DislikeController from "./controllers/DislikeController";
-// import doten from "dotenv";
-// dotenv.config();
+import dotenv from "dotenv";
+dotenv.config();
 
 const cors = require("cors");
 const session = require("express-session");
@@ -32,7 +32,7 @@ mongoose.connect('mongodb+srv://yunmhan:Hym246494726@cluster0.md46p.mongodb.net/
 const app = express();
 app.use(cors({
     credentials: true,
-    origin:'https://wonderful-cendol-c55b64.netlify.app'
+    origin:process.env.CORS_ORIGIN
 }));
 
 const SECRET = 'process.env.EXPRESS_SESSION_SECRET';
