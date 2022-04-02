@@ -19,7 +19,7 @@ import SessionController from "./controllers/SessionController";
 import AuthenticationController from "./controllers/AuthenticationController";
 import mongoose from "mongoose";
 import GroupController from "./controllers/GroupController";
-import DisLikeController from "./controllers/DisLikeController";
+import DislikeController from "./controllers/DisLikeController";
 const cors = require("cors");
 const session = require("express-session");
 
@@ -29,7 +29,7 @@ mongoose.connect('mongodb+srv://yunmhan:Hym246494726@cluster0.md46p.mongodb.net/
 const app = express();
 app.use(cors({
     credentials: true,
-    origin:process.env.CORS_ORIGIN
+    origin:'http://localhost:3000'
 }));
 
 const SECRET = 'process.env.SECRET';
@@ -61,7 +61,7 @@ const courseController = new CourseController(app);
 const userController = UserController.getInstance(app);
 const tuitController = TuitController.getInstance(app);
 const likesController = LikeController.getInstance(app);
-const disLikesController = DisLikeController.getInstance(app);
+const disLikesController = DislikeController.getInstance(app);
 SessionController(app);
 AuthenticationController(app);
 GroupController(app);
