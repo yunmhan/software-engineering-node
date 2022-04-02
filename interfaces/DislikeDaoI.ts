@@ -1,4 +1,4 @@
-import DisLike from "../models/dislikes/DisLike";
+import Dislike from "../models/dislikes/Dislike";
 
 
 /**
@@ -6,8 +6,8 @@ import DisLike from "../models/dislikes/DisLike";
  */
 
 export default interface DislikeDaoI {
-    findAllUsersThatDislikedTuit(tid:string): Promise<DisLike[]>;
-    findAllTuitsDislikedByUser(uid:string): Promise<DisLike[]>;
+    findAllUsersThatDislikedTuit(tid:string): Promise<Dislike[]>;
+    findAllTuitsDislikedByUser(uid:string): Promise<Dislike[]>;
     userUnDislikesTuit(tid:string, uid: string): Promise<any>;
-    userDislikesTuit(tid:string, uid:string): Promise<DisLike>;
+    userDislikesTuit(tid:string, uid:string): Promise<Dislike>;
 }
