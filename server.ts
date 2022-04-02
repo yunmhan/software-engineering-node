@@ -21,10 +21,11 @@ import mongoose from "mongoose";
 import GroupController from "./controllers/GroupController";
 import DislikeController from "./controllers/DislikeController";
 import dotenv from "dotenv";
-dotenv.config();
+
 
 const cors = require("cors");
 const session = require("express-session");
+dotenv.config();
 
 // connect to the database
 mongoose.connect('mongodb+srv://yunmhan:Hym246494726@cluster0.md46p.mongodb.net/tuiter?retryWrites=true&w=majority');
