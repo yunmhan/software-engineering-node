@@ -4,4 +4,3 @@ build
 data
 out
 coverage
-.env

@@ -98,6 +98,11 @@ export default class TuitController implements TuitControllerI {
             req.session['profile']._id : req.params.uid;
 
         console.log(userId);
+
+        if (userId === "my") {
+            res.sendStatus(503);
+            return;
+        }
         
         TuitController.tuitDao.createTuitByUser(userId, req.body)
             .then((tuit: Tuit) => res.json(tuit));
