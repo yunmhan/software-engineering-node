@@ -20,6 +20,9 @@ import AuthenticationController from "./controllers/AuthenticationController";
 import mongoose from "mongoose";
 import GroupController from "./controllers/GroupController";
 import DislikeController from "./controllers/DislikeController";
+// import doten from "dotenv";
+// dotenv.config();
+
 const cors = require("cors");
 const session = require("express-session");
 
@@ -29,22 +32,23 @@ mongoose.connect('mongodb+srv://yunmhan:Hym246494726@cluster0.md46p.mongodb.net/
 const app = express();
 app.use(cors({
     credentials: true,
-    origin:'http://localhost:3000'
+    origin:'https://wonderful-cendol-c55b64.netlify.app'
 }));
 
-const SECRET = 'process.env.SECRET';
+const SECRET = 'process.env.EXPRESS_SESSION_SECRET';
 let sess = {
     secret: SECRET,
     saveUninitialized: true,
     resave: true,
     cookie: {
-        secure: false
+        sameSite: process.env.NODE_ENV === "production" ? 'none' : 'lax',
+        secure: process.env.NODE_ENV === "production",
     }
 }
 
-if (process.env.ENVIRONMENT === 'PRODUCTION') {
+if (process.env.NODE_ENV === 'PRODUCTION') {
     app.set('trust proxy', 1) // trust first proxy
-    sess.cookie.secure = true // serve secure cookies
+    // sess.cookie.secure = true serve secure cookies
 }
 
 app.use(session(sess))
